@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Accelerometer Demo</title>
-
+    <script src="scripts/others/socket.io.js"></script>
     <style>
       .indicatorDot {
         width: 30px;
@@ -17,12 +17,12 @@
     <script>
 
       var socket = io('https://accelerometerrl.onrender.com');
-            socket.on("error", (error) => {
-              console.log('socket connection problem')
-            });
-            socket.on("connect", (e) => {
-              console.log('socket connected')
-            });
+      socket.on("error", (error) => {
+        console.log('socket connection problem')
+      });
+      socket.on("connect", (e) => {
+        console.log('socket connected')
+      });
 
       var px = 50; // Position x and y
       var py = 50;

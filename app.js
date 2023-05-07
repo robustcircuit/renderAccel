@@ -41,6 +41,21 @@ db.once('open', function callback() {
   console.log('database opened');
 });
 
+// manage input data from socket
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+  socket.on('eventAccel', (data) => {
+    mainModel.create({
+      "acceldata": data
+    });
+  });
+});
+
+
+
 app.get('/', function (request, response) {
   response.render('gonogo.html');
 });

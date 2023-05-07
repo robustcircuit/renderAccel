@@ -14,7 +14,7 @@ app.use(cors());
 const serverhttp = http.createServer(app);
 const io = new Server(serverhttp, {
   cors: {
-    origin: ['http://localhost:' + process.env.PORT],
+    origin: ['http://localhost:' + process.env.PORT, 'https://accelerometerrl.onrender.com'],
     methods: ["GET", "POST"]
   }
 })

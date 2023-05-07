@@ -16,27 +16,13 @@
 
     <script>
 
-      var socket
-      connectsocket = function () {
-        fetch('getEnvironmentVars')
-          .then(response => response.json())
-          .then(data => {
-            var node_env = data.ENVIRONMENT;
-            console.log(node_env)
-            if (node_env == 'production') {
-              socket = io('https://accelerometerrl.onrender.com');
-            } else if (node_env == 'development') {
-              socket = io('http://localhost:3000');
-            }
+      var socket = io('https://accelerometerrl.onrender.com');
             socket.on("error", (error) => {
               console.log('socket connection problem')
             });
             socket.on("connect", (e) => {
               console.log('socket connected')
             });
-          })
-      }
-      connectsocket()
 
       var px = 50; // Position x and y
       var py = 50;
